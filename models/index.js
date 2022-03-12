@@ -1,4 +1,6 @@
-const Tech = require('./Tech');
-const Matchup = require('./Matchup');
+const User = require('./User');
+const Profile = require('./Profile');
+const Message = require('./Message');
+const Chat = require('./Chat');
 
-module.exports = { Tech, Matchup };
+module.exports = { User, Profile, Message, Chat };
