@@ -1,4 +1,5 @@
 const { gql } = require('apollo-server-express');
+// Query messages by user ID
 
 const typeDefs = gql`
   type User {
@@ -21,13 +22,34 @@ const typeDefs = gql`
     user: User
   }
 
+  type: Message {
+    _id: ID!
+    text: String!
+    date: Date!
+    user: User
+    match: User
+  }
 
+  type: Chat {
+    _id: ID!
+    text: String!
+    date: Date!
+    message: Message
+    user: User
+  }
 
-  
+  type Auth {
+    token: ID!
+    user: User
+  }
 
   type Query {
-    tech: [Tech]
-    matchups(_id: String): [Matchup]
+    user: [User]
+    profile: [Profile]
+    message: [Message]
+    chat: [Chat]
+    profile(_id: String): [Profile]
+    messages(_id: String): [Message]
   }
 
   type Mutation {
