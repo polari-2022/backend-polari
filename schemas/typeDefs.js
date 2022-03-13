@@ -1,18 +1,29 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Tech {
+  type User {
     _id: ID!
-    name: String!
+    email:String!
+    password:String!
   }
 
-  type Matchup {
+  type Profile {
     _id: ID!
-    tech1: String!
-    tech2: String!
-    tech1_votes: Int
-    tech2_votes: Int
+    firstName: String!
+    photo:Photo!
+    attachmentStyle:String!
+    genderIdentity:String!
+    genderInterests:String!
+    bio:string!
+    birthdate:Date!
+    pronouns:String
+    sexualOrientation:String
+    user: User
   }
+
+
+
+  
 
   type Query {
     tech: [Tech]
