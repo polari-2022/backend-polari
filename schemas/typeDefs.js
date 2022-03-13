@@ -1,5 +1,6 @@
 const { gql } = require('apollo-server-express');
 // Query messages by user ID
+// check inputProfile if it work!!!
 
 const typeDefs = gql`
   type User {
@@ -10,6 +11,19 @@ const typeDefs = gql`
 
   type Profile {
     _id: ID!
+    firstName: String!
+    photo:Photo!
+    attachmentStyle:String!
+    genderIdentity:String!
+    genderInterests:String!
+    bio:string!
+    birthdate:Date!
+    pronouns:String
+    sexualOrientation:String
+    user: User
+  }
+  input InputProfile{
+    profileId: string!
     firstName: String!
     photo:Photo!
     attachmentStyle:String!
@@ -53,8 +67,12 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createMatchup(tech1: String!, tech2: String!): Matchup
-    createVote(_id: String!, techNum: Int!): Matchup
+    login(email: String!, password: String!): Auth
+    addUser(email:String!, password:String!):Auth
+    addProfile(input:InputProfile!):Profile
+    updateProfile(profileId:ID!):Profile
+    removeMessage(messageId:ID!):Message
+    removeChat(chatId:ID!):Chat
   }
 `;
 
