@@ -7,27 +7,26 @@ const profileSchema = new Schema({
       trim: true,
     },
     photo: {
-        type: Photo,
+        type: String,
         required: true,
     },
     attachmentStyle: {
         type: String,
-        // Look up data type for the three attachment styles
+        enum: ['secure', 'avoidant', 'anxious'],
         require: true,
     },
     genderIdentity: {
         type: String,
-        // Look up data type for the three attachment styles
+        enum: ['women', 'men', 'non-binary'],
         require: true,
     },
     genderInterests: {
-        type: String,
-        // Look up data type for array
+        type: [String],
+        enum: ['women', 'men', 'non-binary'],
         require: true,
     },
     bio: {
         type: String,
-        // Double check
         require: true,
     },
     birthdate: {
