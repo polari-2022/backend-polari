@@ -13,12 +13,25 @@ const resolvers = {
     users: async () => {
       return User.find();
     },
-    messages: async () => {
-      return Message.find();
-    },
-    threads: async () => {
+    threadsTest: async () => {
       return Thread.find();
     },
+    threads: async (parent, { userId }) => {
+      return Thread.find({ _id: userId });
+    },
+    thread: async (parent, { threadId }) => {
+      return Thread.findOne({ _id: threadId });
+    },
+    messagesTest: async () => {
+      return Message.find();
+    },
+    messages: async (parent, { threadId }) => {
+      return Message.find({ _id: threadId });
+    },
+    // Query all the profiles except for the logged in user.  
+    // Have the algorithm for matches
+    // Needs to be by gender interests and attachment style
+    // Math.random
   },
   Mutation: {
     login: async (parent, { email, password }) => {

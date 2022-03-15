@@ -7,6 +7,7 @@ const typeDefs = gql`
     _id: ID!
     email:String!
     password:String!
+    profile: Profile
   }
 
   type Profile {
@@ -42,6 +43,7 @@ const typeDefs = gql`
     date: Date!
     user: User
     match: User
+    message: Message
   }
 
   type: Message {
@@ -60,10 +62,12 @@ const typeDefs = gql`
   type Query {
     users: [User]
     profiles: [Profile]
-    threads: [Thread]
-    messages: [Message]
+    threadsTest: [Thread]
+    threads(userId:ID!): [Thread]
+    messagesTest: [Message]
     profile(_id: String): [Profile]
     thread(_id: String): [Thread]
+    messages(userId:ID!): [Message]
   }
 
   type Mutation {
