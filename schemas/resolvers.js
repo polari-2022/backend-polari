@@ -11,6 +11,21 @@ const resolvers = {
       const params = _id ? { _id } : {};
       return Matchup.find(params);
     },
+    profiles: async () => {
+      return Profile.find();
+    },
+    profile: async (parent, { profileId }) => {
+      return Profile.findOne({ _id: profileId });
+    },
+    users: async () => {
+      return User.find();
+    },
+    messages: async () => {
+      return Message.find();
+    },
+    chats: async () => {
+      return Chat.find();
+    },
   },
   Mutation: {
     createMatchup: async (parent, args) => {
