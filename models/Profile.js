@@ -41,6 +41,11 @@ const profileSchema = new Schema({
         type: String,
         maxLength: 30,
     },
+    currentLocation: {
+        type: Int,
+        maxLength: 5,
+        require: true,
+    },
 })
 
 const Profile = model('Profile', profileSchema);

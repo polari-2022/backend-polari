@@ -22,19 +22,21 @@ const typeDefs = gql`
     pronouns:String
     sexualOrientation:String
     user: User
+    currentLocation: Int!
   }
   input InputProfile{
     profileId: string!
-    firstName: String!
-    photo:String!
-    attachmentStyle:String!
-    genderIdentity:String!
-    genderInterests:[String]!
-    bio:string!
-    birthdate:Date!
-    pronouns:String
-    sexualOrientation:String
+    firstName: String
+    photo: String
+    attachmentStyle: String
+    genderIdentity: String
+    genderInterests:[String]
+    bio: String
+    birthdate: Date
+    pronouns: String
+    sexualOrientation: String
     user: User
+    currentLocation: Int
   }
 
   type: Thread {
