@@ -1,4 +1,4 @@
-const { Tech, Matchup } = require('../models');
+const { Chat, Message, Profile, User } = require('../models');
 
 const resolvers = {
   Query: {
@@ -14,6 +14,22 @@ const resolvers = {
     createMatchup: async (parent, args) => {
       const matchup = await Matchup.create(args);
       return matchup;
+    },
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('Incorrect email or password! Try again QUEEN');
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect email or password! Try again QUEEN');
+      }
+
+      const token = signToken(user);
+      return { token, user };
     },
     createVote: async (parent, { _id, techNum }) => {
       const vote = await Matchup.findOneAndUpdate(
