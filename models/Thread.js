@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const messageSchema = new Schema({
+const threadSchema = new Schema({
     text:{
        type: String,
        require:true, 
@@ -12,6 +12,6 @@ const messageSchema = new Schema({
     },
 })
 
-const Message = model('Message', messageSchema);
+const Thread = model('Thread', threadSchema);
 
-module.exports =Message;
+module.exports = Thread;

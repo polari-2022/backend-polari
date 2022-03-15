@@ -1,5 +1,5 @@
 const { gql } = require('apollo-server-express');
-// Query messages by user ID
+// Query threads by user ID
 // check inputProfile if it work!!!
 
 const typeDefs = gql`
@@ -36,7 +36,7 @@ const typeDefs = gql`
     user: User
   }
 
-  type: Message {
+  type: Thread {
     _id: ID!
     text: String!
     date: Date!
@@ -48,7 +48,7 @@ const typeDefs = gql`
     _id: ID!
     text: String!
     date: Date!
-    message: Message
+    thread: Thread
     user: User
   }
 
@@ -58,21 +58,21 @@ const typeDefs = gql`
   }
 
   type Query {
-    user: [User]
-    profile: [Profile]
-    message: [Message]
+    users: [User]
+    profiles: [Profile]
+    threads: [Thread]
     chat: [Chat]
     profile(_id: String): [Profile]
-    messages(_id: String): [Message]
+    thread(_id: String): [Thread]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(email:String!, password:String!):Auth
-    addProfile(input:InputProfile!):Profile
-    updateProfile(profileId:ID!):Profile
-    removeMessage(messageId:ID!):Message
-    removeChat(chatId:ID!):Chat
+    addUser(email:String!, password:String!): Auth
+    addProfile(input:InputProfile!): Profile
+    updateProfile(profileId:ID!): Profile
+    removeThread(threadId:ID!): Thread
+    removeChat(chatId:ID!): Chat
   }
 `;
 
