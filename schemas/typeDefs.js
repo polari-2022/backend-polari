@@ -12,10 +12,10 @@ const typeDefs = gql`
   type Profile {
     _id: ID!
     firstName: String!
-    photo:Photo!
+    photo:String!
     attachmentStyle:String!
     genderIdentity:String!
-    genderInterests:String!
+    genderInterests:[String]!
     bio:string!
     birthdate:Date!
     pronouns:String
@@ -25,10 +25,10 @@ const typeDefs = gql`
   input InputProfile{
     profileId: string!
     firstName: String!
-    photo:Photo!
+    photo:String!
     attachmentStyle:String!
     genderIdentity:String!
-    genderInterests:String!
+    genderInterests:[String]!
     bio:string!
     birthdate:Date!
     pronouns:String
@@ -44,7 +44,7 @@ const typeDefs = gql`
     match: User
   }
 
-  type: Chat {
+  type: Message {
     _id: ID!
     text: String!
     date: Date!
@@ -61,7 +61,7 @@ const typeDefs = gql`
     users: [User]
     profiles: [Profile]
     threads: [Thread]
-    chat: [Chat]
+    messages: [Message]
     profile(_id: String): [Profile]
     thread(_id: String): [Thread]
   }
@@ -72,7 +72,7 @@ const typeDefs = gql`
     addProfile(input:InputProfile!): Profile
     updateProfile(profileId:ID!): Profile
     removeThread(threadId:ID!): Thread
-    removeChat(chatId:ID!): Chat
+    removeMessage(messageId:ID!): Message
   }
 `;
 
