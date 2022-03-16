@@ -22,23 +22,36 @@ const resolvers = {
     },
     // get all threads
     threadsTest: async () => {
-      return Thread.find({}).populate("messages");
+      return Thread.find({})
+        .populate("messages")
+        .populate("user")
+        .populate("match")
     },
     // get all the threads for one user by the user's id
     threads: async (parent, args) => {
-      return Thread.find(args.userId);
+      return Thread.find(args.userId)
+        .populate("messages")
+        .populate("user")
+        .populate("match")
     },
     // get one thread by id (also might need to query for user's id that is logged in)
     thread: async (parent, args) => {
-      return Thread.findById(args.id).populate("messages");
+      return Thread.findById(args.id)
+        .populate("messages")
+        .populate("user")
+        .populate("match")
     },
     // get all messages
     messagesTest: async () => {
-      return Message.find();
+      return Message.find({})
+      .populate("thread")
+      .populate("user")
     },
     // get messages by id of the thread
     messages: async (parent, { threadId }) => {
-      return Message.find({ _id: threadId });
+      return Message.find({ _id: threadId })
+      .populate("thread")
+      .populate("user")
     },
   },
   Mutation: {

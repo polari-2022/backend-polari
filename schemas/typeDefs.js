@@ -45,7 +45,7 @@ const typeDefs = gql`
     date: Date!
     user: User
     match: User
-    message: Message
+    messages: [Message]
   }
 
   type Message {
@@ -63,23 +63,23 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user: User
+    user( id: ID!): User
     profiles: [Profile]
+    profile( id: ID!): Profile
     threadsTest: [Thread]
     threads(userId:ID!): [Thread]
     messagesTest: [Message]
-    profile(_id: String): [Profile]
-    thread(_id: String): [Thread]
-    messages(userId:ID!): [Message]
+    thread( id: ID!): Thread
+    messages(threadId:ID!): [Message]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(email:String!, password:String!): Auth
     addProfile(firstName: String, photo: String, attachmentStyle: String, genderIdentity: String, genderInterests: [String], bio: String, birthdate: Date, pronouns: String, sexualOrientation: String, currentLocation: Int): Profile
-    updateProfile(profileId: ID!, firstName: String, photo: String, attachmentStyle: String, genderIdentity: String, genderInterests: [String], bio: String, birthdate: Date, pronouns: String, sexualOrientation: String, currentLocation: Int): Profile
-    removeThread(threadId:ID!): Thread
-    removeMessage(messageId:ID!): Message
+    updateProfile(id: ID!, firstName: String, photo: String, attachmentStyle: String, genderIdentity: String, genderInterests: [String], bio: String, birthdate: Date, pronouns: String, sexualOrientation: String, currentLocation: Int): Profile
+    removeThread(threadId:ID!,userId:ID!): Thread
+    removeMessage(messageId:ID!,userId:ID!): Message
   }
 `;
 

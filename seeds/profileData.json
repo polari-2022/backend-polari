@@ -6,7 +6,7 @@
         "genderIdentity":"men",
         "genderInterests":["women","men"],
         "bio":"I like cats",
-        "birthdate":2000,
+        "birthdate":"2000-01-01",
         "pronouns":"he/him",
         "sexualOrientation":null,
         "currentLocation":60516
@@ -19,7 +19,7 @@
         "genderIdentity":"non-binary",
         "genderInterests":["women"],
         "bio":"I like dogs",
-        "birthdate":1999,
+        "birthdate":"1999-02-02",
         "pronouns":"she/her",
         "sexualOrientation":null,
         "currentLocation":60517
@@ -32,7 +32,7 @@
         "genderIdentity":"women",
         "genderInterests":["women"],
         "bio":"I like dogs",
-        "birthdate":1998,
+        "birthdate":"1998-03-03",
         "pronouns":"she/her",
         "sexualOrientation":null,
         "currentLocation":60518
@@ -44,7 +44,7 @@
         "genderIdentity":"women",
         "genderInterests":["women"],
         "bio":"I like fish",
-        "birthdate":1997,
+        "birthdate":"1997-04-04",
         "pronouns":"she/her",
         "sexualOrientation":null,
         "currentLocation":60519
@@ -56,7 +56,7 @@
         "genderIdentity":"men",
         "genderInterests":["women"],
         "bio":"I like animals",
-        "birthdate":1996,
+        "birthdate":"1996-05-05",
         "pronouns":"they/them",
         "sexualOrientation":null,
         "currentLocation":60520  
