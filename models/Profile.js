@@ -13,25 +13,25 @@ const profileSchema = new Schema({
     attachmentStyle: {
         type: String,
         enum: ['secure', 'avoidant', 'anxious'],
-        require: true,
+        required: true,
     },
     genderIdentity: {
         type: String,
         enum: ['women', 'men', 'non-binary'],
-        require: true,
+        required: true,
     },
     genderInterests: {
         type: [String],
         enum: ['women', 'men', 'non-binary'],
-        require: true,
+        required: true,
     },
     bio: {
         type: String,
-        require: true,
+        required: true,
     },
     birthdate: {
         type: Date,
-        require: true,
+        required: true,
     },
     pronouns: {
         type: String,
@@ -42,9 +42,9 @@ const profileSchema = new Schema({
         maxLength: 30,
     },
     currentLocation: {
-        type: Int,
+        type: Number,
         maxLength: 5,
-        require: true,
+        required: true,
     },
 })
 

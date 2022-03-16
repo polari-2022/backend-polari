@@ -3,11 +3,11 @@ const { Schema, model } = require('mongoose');
 const threadSchema = new Schema({
     text:{
        type: String,
-       require:true, 
+       required:true, 
     },
     date:{
         type:Date,
-        require:true,
+        required:true,
         default:Date.now,
     },
 })
