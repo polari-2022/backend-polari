@@ -1,0 +1,65 @@
+[
+    {
+        "firstName": "Bleh",
+        "photo":"sun.png",
+        "attachmentStyle":"secure",
+        "genderIdentity":"men",
+        "genderInterests":["women","men"],
+        "bio":"I like cats",
+        "birthdate":2000,
+        "pronouns":"he/him",
+        "sexualOrientation":null,
+        "currentLocation":60516
+
+    },
+    {
+        "firstName": "Brianna",
+        "photo":"sun.png",
+        "attachmentStyle":"anxious",
+        "genderIdentity":"non-binary",
+        "genderInterests":["women"],
+        "bio":"I like dogs",
+        "birthdate":1999,
+        "pronouns":"she/her",
+        "sexualOrientation":null,
+        "currentLocation":60517
+
+    },
+    {
+        "firstName": "Edyta",
+        "photo":"sun.png",
+        "attachmentStyle":"secure",
+        "genderIdentity":"women",
+        "genderInterests":["women"],
+        "bio":"I like dogs",
+        "birthdate":1998,
+        "pronouns":"she/her",
+        "sexualOrientation":null,
+        "currentLocation":60518
+    },
+    {
+        "firstName": "Fiona",
+        "photo":"sun.png",
+        "attachmentStyle":"avoidant",
+        "genderIdentity":"women",
+        "genderInterests":["women"],
+        "bio":"I like fish",
+        "birthdate":1997,
+        "pronouns":"she/her",
+        "sexualOrientation":null,
+        "currentLocation":60519
+    },
+    {
+        "firstName": "Jonathan",
+        "photo":"sun.png",
+        "attachmentStyle":"secure",
+        "genderIdentity":"men",
+        "genderInterests":["women"],
+        "bio":"I like animals",
+        "birthdate":1996,
+        "pronouns":"they/them",
+        "sexualOrientation":null,
+        "currentLocation":60520  
+    }
+
+]
