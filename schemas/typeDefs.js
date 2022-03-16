@@ -3,6 +3,7 @@ const { gql } = require('apollo-server-express');
 // check inputProfile if it work!!!
 
 const typeDefs = gql`
+  scalar Date 
   type User {
     _id: ID!
     email:String!
@@ -17,15 +18,15 @@ const typeDefs = gql`
     attachmentStyle:String!
     genderIdentity:String!
     genderInterests:[String]!
-    bio:string!
+    bio: String!
     birthdate:Date!
     pronouns:String
     sexualOrientation:String
     user: User
     currentLocation: Int!
   }
-  input InputProfile{
-    profileId: string!
+  input ProfileInput{
+    profileId: String!
     firstName: String
     photo: String
     attachmentStyle: String
@@ -35,11 +36,10 @@ const typeDefs = gql`
     birthdate: Date
     pronouns: String
     sexualOrientation: String
-    user: User
     currentLocation: Int
   }
 
-  type: Thread {
+  type Thread {
     _id: ID!
     text: String!
     date: Date!
@@ -48,7 +48,7 @@ const typeDefs = gql`
     message: Message
   }
 
-  type: Message {
+  type Message {
     _id: ID!
     text: String!
     date: Date!
@@ -75,7 +75,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(email:String!, password:String!): Auth
-    addProfile(input:InputProfile!): Profile
+    addProfile(input:ProfileInput!): Profile
     updateProfile(profileId:ID!): Profile
     removeThread(threadId:ID!): Thread
     removeMessage(messageId:ID!): Message

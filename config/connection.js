@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'local instance HERE', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/backend-polari', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
