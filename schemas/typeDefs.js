@@ -63,6 +63,7 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
+    user: User
     profiles: [Profile]
     threadsTest: [Thread]
     threads(userId:ID!): [Thread]
