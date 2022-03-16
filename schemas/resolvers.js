@@ -85,10 +85,11 @@ const resolvers = {
     },
 
     // updateProfile: async
-    updateProfile: async (parent, { id }) => {
+    updateProfile: async (parent, { id, firstName, photo, attachmentStyle, genderIdentity, genderInterests, bio, birthdate, pronouns, sexualOrientation, currentLocation }) => {
       return await Profile.findOneAndUpdate(
         { _id: id },
         // add something here
+        { firstName, photo, attachmentStyle, genderIdentity, genderInterests, bio, birthdate, pronouns, sexualOrientation, currentLocation },
         { new: true }
       );
     },
