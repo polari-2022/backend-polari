@@ -71,10 +71,10 @@ const resolvers = {
       return { token, user };
     },
     // create a new profile
-    addProfile: async (parent, { profile, userId }, context) => {
+    addProfile: async (parent, { id, firstName, photo, attachmentStyle, genderIdentity, genderInterests, bio, birthdate, pronouns, sexualOrientation, currentLocation, userId }, context) => {
       if (userId) {
         const profile = await Profile.create(
-          { profile }
+          { id, firstName, photo, attachmentStyle, genderIdentity, genderInterests, bio, birthdate, pronouns, sexualOrientation, currentLocation }
           // {_id: context.user._id},
           // {$addToSet: {Profile: profileData}},
           // {new: true},

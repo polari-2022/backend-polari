@@ -76,7 +76,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(email:String!, password:String!): Auth
-    addProfile(input:ProfileInput!): Profile
+    addProfile(firstName: String, photo: String, attachmentStyle: String, genderIdentity: String, genderInterests: [String], bio: String, birthdate: Date, pronouns: String, sexualOrientation: String, currentLocation: Int): Profile
     updateProfile(profileId: ID!, firstName: String, photo: String, attachmentStyle: String, genderIdentity: String, genderInterests: [String], bio: String, birthdate: Date, pronouns: String, sexualOrientation: String, currentLocation: Int): Profile
     removeThread(threadId:ID!): Thread
     removeMessage(messageId:ID!): Message
