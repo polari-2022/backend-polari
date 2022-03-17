@@ -25,33 +25,31 @@ const resolvers = {
       return Thread.find({})
         .populate("messages")
         .populate("user")
-        .populate("match")
+        .populate("match");
     },
     // get all the threads for one user by the user's id
     threads: async (parent, args) => {
       return Thread.find(args.userId)
         .populate("messages")
         .populate("user")
-        .populate("match")
+        .populate("match");
     },
     // get one thread by id (also might need to query for user's id that is logged in)
     thread: async (parent, args) => {
       return Thread.findById(args.id)
         .populate("messages")
         .populate("user")
-        .populate("match")
+        .populate("match");
     },
     // get all messages
     messagesTest: async () => {
-      return Message.find({})
-      .populate("thread")
-      .populate("user")
+      return Message.find({}).populate("thread").populate("user");
     },
     // get messages by id of the thread
     messages: async (parent, { threadId }) => {
       return Message.find({ _id: threadId })
-      .populate("thread")
-      .populate("user")
+        .populate("thread")
+        .populate("user");
     },
   },
   Mutation: {
@@ -84,10 +82,39 @@ const resolvers = {
       return { token, user };
     },
     // create a new profile
-    addProfile: async (parent, { id, firstName, photo, attachmentStyle, genderIdentity, genderInterests, bio, birthdate, pronouns, sexualOrientation, currentLocation, userId }, context) => {
+    addProfile: async (
+      parent,
+      {
+        id,
+        firstName,
+        photo,
+        attachmentStyle,
+        genderIdentity,
+        genderInterests,
+        bio,
+        birthdate,
+        pronouns,
+        sexualOrientation,
+        currentLocation,
+        userId,
+      },
+      context
+    ) => {
       if (userId) {
         const profile = await Profile.create(
-          { id, firstName, photo, attachmentStyle, genderIdentity, genderInterests, bio, birthdate, pronouns, sexualOrientation, currentLocation }
+          {
+            id,
+            firstName,
+            photo,
+            attachmentStyle,
+            genderIdentity,
+            genderInterests,
+            bio,
+            birthdate,
+            pronouns,
+            sexualOrientation,
+            currentLocation,
+          }
           // {_id: context.user._id},
           // {$addToSet: {Profile: profileData}},
           // {new: true},
@@ -98,14 +125,28 @@ const resolvers = {
     },
 
     // updateProfile: async
-    updateProfile: async (parent, { id, firstName, photo, attachmentStyle, genderIdentity, genderInterests, bio, birthdate, pronouns, sexualOrientation, currentLocation }) => {
+    updateProfile: async (parent, args) => {
       return await Profile.findOneAndUpdate(
-        { _id: id },
+        { _id: args.id },
         // add something here
-        { firstName, photo, attachmentStyle, genderIdentity, genderInterests, bio, birthdate, pronouns, sexualOrientation, currentLocation },
+        {
+          $set: {
+            firstName: args.firstName,
+            photo: args.photo,
+            attachmentStyle: args.attachmentStyle,
+            genderIdentity: args.genderIdentity,
+            genderInterests: args.genderInterests,
+            bio: args.bio,
+            birthdate: args.birthdate,
+            pronouns: args.pronouns,
+            sexualOrientation: args.sexualOrientation,
+            currentLocation: args.currentLocation,
+          },
+        },
         { new: true }
       );
     },
+
     // delete a thread by the id
     removeThread: async (parent, { threadId, userId }, context) => {
       if (userId) {
@@ -134,9 +175,6 @@ const resolvers = {
 };
 
 module.exports = resolvers;
-
-
-
 
 // const { AuthenticationError } = require('apollo-server-express');
 // const { Message, Thread, Profile, User } = require('../models');
