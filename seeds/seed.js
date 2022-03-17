@@ -45,6 +45,10 @@ db.once('open', async () =>{
         const tempMatch = users[Math.floor(Math.random()* users.length)];
         newThread.match = tempMatch._id;
         await newThread.save();
+         // add a userId to each thread
+        const tempUserid = users[Math.floor(Math.random()* users.length)];
+        newThread.userId = tempUserid._id;
+        await newThread.save();
     };
 
     console.log('Data seeded!!')
