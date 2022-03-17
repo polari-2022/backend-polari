@@ -46,8 +46,8 @@ const resolvers = {
       return Message.find({}).populate("thread").populate("user");
     },
     // get messages by id of the thread
-    messages: async (parent, { threadId }) => {
-      return Message.find({ _id: threadId })
+    messages: async (parent, args) => {
+      return Message.find(args)
         .populate("thread")
         .populate("user");
     },

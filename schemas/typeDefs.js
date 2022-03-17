@@ -55,6 +55,7 @@ const typeDefs = gql`
     date: Date!
     thread: Thread
     user: User
+    threadId: String
   }
 
   type Auth {
@@ -71,7 +72,7 @@ const typeDefs = gql`
     threads(userId: String!): [Thread]
     messagesTest: [Message]
     thread( id: ID!): Thread
-    messages(threadId:ID!): [Message]
+    messages(threadId: String!): [Message]
   }
 
   type Mutation {
