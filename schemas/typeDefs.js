@@ -46,6 +46,7 @@ const typeDefs = gql`
     user: User
     match: User
     messages: [Message]
+    userId: String
   }
 
   type Message {
@@ -67,7 +68,7 @@ const typeDefs = gql`
     profiles: [Profile]
     profile( id: ID!): Profile
     threadsTest: [Thread]
-    threads(userId:ID!): [Thread]
+    threads(userId: String!): [Thread]
     messagesTest: [Message]
     thread( id: ID!): Thread
     messages(threadId:ID!): [Message]

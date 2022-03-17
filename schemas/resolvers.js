@@ -29,7 +29,7 @@ const resolvers = {
     },
     // get all the threads for one user by the user's id
     threads: async (parent, args) => {
-      return Thread.find(args.userId)
+      return Thread.find(args)
         .populate("messages")
         .populate("user")
         .populate("match");

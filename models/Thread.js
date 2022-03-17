@@ -23,7 +23,10 @@ const threadSchema = new Schema({
             type:Schema.Types.ObjectId,
             ref:'Message'
         }
-    ]
+    ],
+    userId:{
+        type:String
+    },
 })
 
 const Thread = model('Thread', threadSchema);
