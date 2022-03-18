@@ -100,7 +100,7 @@ const resolvers = {
       },
       context
     ) => {
-      if (userId) {
+      if (context.user) {
         const profile = await Profile.create(
           {
             id,
@@ -125,8 +125,9 @@ const resolvers = {
     },
 
     // updateProfile: async
-    updateProfile: async (parent, args) => {
-      return await Profile.findOneAndUpdate(
+    updateProfile: async (parent, args, context) => {
+      if (context.user) {
+        return await Profile.findOneAndUpdate(
         { _id: args.id },
         // add something here
         {
@@ -145,11 +146,13 @@ const resolvers = {
         },
         { new: true }
       );
-    },
+    }
+    throw new AuthenticationError("You need to be logged in!");
+  },
 
     // delete a thread by the id
-    removeThread: async (parent, { threadId, userId }, context) => {
-      if (userId) {
+    removeThread: async (parent, { threadId }, context) => {
+      if (context.user) {
         const deleteThread = await Thread.findOneAndDelete(
           { _id: threadId }
           // {$pull:{threadId}},
@@ -162,8 +165,8 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     // delete a message by id look at activity 12 resolvers
-    removeMessage: async (parent, { messageId, userId }, context) => {
-      if (userId) {
+    removeMessage: async (parent, { messageId }, context) => {
+      if (context.user) {
         return Message.findOneAndDelete(
           { _id: messageId }
           // { _id: context.user._id },
