@@ -1,37 +1,37 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 // Query threads by user ID
 // check inputProfile if it work!!!
 
 const typeDefs = gql`
-  scalar Date 
+  scalar Date
   type User {
     _id: ID!
-    email:String!
-    password:String!
+    email: String!
+    password: String!
     profile: Profile
   }
 
   type Profile {
     _id: ID!
     firstName: String!
-    photo:String!
-    attachmentStyle:String!
-    genderIdentity:String!
-    genderInterests:[String]!
+    photo: String!
+    attachmentStyle: String!
+    genderIdentity: String!
+    genderInterests: [String]!
     bio: String!
-    birthdate:Date!
-    pronouns:String
-    sexualOrientation:String
+    birthdate: Date!
+    pronouns: String
+    sexualOrientation: String
     user: User
     currentLocation: Int!
   }
-  input ProfileInput{
+  input ProfileInput {
     profileId: String!
     firstName: String
     photo: String
     attachmentStyle: String
     genderIdentity: String
-    genderInterests:[String]
+    genderInterests: [String]
     bio: String
     birthdate: Date
     pronouns: String
@@ -65,23 +65,47 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user( id: ID!): User
+    user(id: ID!): User
     profiles: [Profile]
-    profile( id: ID!): Profile
+    profile(id: ID!): Profile
     threadsTest: [Thread]
     threads(userId: String!): [Thread]
     messagesTest: [Message]
-    thread( id: ID!): Thread
+    thread(id: ID!): Thread
     messages(threadId: String!): [Message]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(email:String!, password:String!): Auth
-    addProfile(firstName: String, photo: String, attachmentStyle: String, genderIdentity: String, genderInterests: [String], bio: String, birthdate: Date, pronouns: String, sexualOrientation: String, currentLocation: Int): Profile
-    updateProfile(id: ID!, firstName: String, photo: String, attachmentStyle: String, genderIdentity: String, genderInterests: [String], bio: String, birthdate: Date, pronouns: String, sexualOrientation: String, currentLocation: Int): Profile
-    removeThread(threadId:ID!,userId:ID!): Thread
-    removeMessage(messageId:ID!,userId:ID!): Message
+    addUser(email: String!, password: String!): Auth
+    addProfile(
+      firstName: String
+      photo: String
+      attachmentStyle: String
+      genderIdentity: String
+      genderInterests: [String]
+      bio: String
+      birthdate: Date
+      pronouns: String
+      sexualOrientation: String
+      currentLocation: Int
+      userId: String
+    ): Profile
+    updateProfile(
+      id: ID!
+      firstName: String
+      photo: String
+      attachmentStyle: String
+      genderIdentity: String
+      genderInterests: [String]
+      bio: String
+      birthdate: Date
+      pronouns: String
+      sexualOrientation: String
+      currentLocation: Int
+    ): Profile
+    removeThread(threadId: ID!): Thread
+    removeMessage(messageId: ID!): Message
   }
 `;
 
