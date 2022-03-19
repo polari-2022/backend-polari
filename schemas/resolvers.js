@@ -103,7 +103,7 @@ const resolvers = {
         birthdate,
         pronouns,
         sexualOrientation,
-        currentLocation,
+        currentCity,
         userId,
       },
       context
@@ -121,7 +121,7 @@ const resolvers = {
             birthdate,
             pronouns,
             sexualOrientation,
-            currentLocation,
+            currentCity,
           }
           // {_id: context.user._id},
           // {$addToSet: {Profile: profileData}},
@@ -149,7 +149,7 @@ const resolvers = {
             birthdate: args.birthdate,
             pronouns: args.pronouns,
             sexualOrientation: args.sexualOrientation,
-            currentLocation: args.currentLocation,
+            currentCity: args.currentCity,
           },
         },
         { new: true }
