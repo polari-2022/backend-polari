@@ -43,9 +43,8 @@ const profileSchema = new Schema({
         type: String,
         maxLength: 30,
     },
-    currentLocation: {
-        type: Number,
-        maxLength: 5,
+    currentCity: {
+        type: String,
         required: true,
     },
     user:{

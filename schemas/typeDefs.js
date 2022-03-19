@@ -23,7 +23,7 @@ const typeDefs = gql`
     pronouns: String
     sexualOrientation: String
     user: User
-    currentLocation: Int!
+    currentCity: String!
   }
   input ProfileInput {
     profileId: String!
@@ -36,7 +36,7 @@ const typeDefs = gql`
     birthdate: Date
     pronouns: String
     sexualOrientation: String
-    currentLocation: Int
+    currentCity: String
   }
 
   type Thread {
@@ -89,7 +89,7 @@ const typeDefs = gql`
       birthdate: Date
       pronouns: String
       sexualOrientation: String
-      currentLocation: Int
+      currentCity: String
       userId: String
     ): Profile
     updateProfile(
@@ -103,7 +103,7 @@ const typeDefs = gql`
       birthdate: Date
       pronouns: String
       sexualOrientation: String
-      currentLocation: Int
+      currentCity: String
     ): Profile
     removeThread(threadId: ID!): Thread
     removeMessage(messageId: ID!): Message
