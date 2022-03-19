@@ -73,6 +73,7 @@ const typeDefs = gql`
     messagesTest: [Message]
     thread(id: ID!): Thread
     messages(threadId: String!): [Message]
+    me: User
   }
 
   type Mutation {
