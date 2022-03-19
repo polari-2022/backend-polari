@@ -108,6 +108,9 @@ const resolvers = {
       },
       context
     ) => {
+      if (currentCity) {
+        currentCity.lowercase();
+      }
       if (context.user) {
         const profile = await Profile.create(
           {
@@ -134,6 +137,9 @@ const resolvers = {
 
     // updateProfile: async
     updateProfile: async (parent, args, context) => {
+      if (currentCity) {
+        currentCity.lowercase();
+      }
       if (context.user) {
         return await Profile.findOneAndUpdate(
         { _id: args.id },
