@@ -8,16 +8,16 @@ const profileSchema = new Schema({
     },
     photo: {
         type: String,
-        required: true,
+        // required: true,
     },
     attachmentStyle: {
         type: String,
-        enum: ['secure', 'avoidant', 'anxious'],
+        // enum: ['secure', 'avoidant', 'anxious'],
         required: true,
     },
     genderIdentity: {
         type: String,
-        enum: ['woman', 'man', 'non-binary'],
+        // enum: ['woman', 'man', 'non-binary'],
         required: true,
     },
     genderInterests:[

@@ -109,7 +109,7 @@ const resolvers = {
       context
     ) => {
       if (currentCity) {
-        currentCity.lowercase();
+        currentCity.toLowerCase();
       }
       if (context.user) {
         const profile = await Profile.create(
@@ -125,6 +125,7 @@ const resolvers = {
             pronouns,
             sexualOrientation,
             currentCity,
+            userId,
           }
           // {_id: context.user._id},
           // {$addToSet: {Profile: profileData}},

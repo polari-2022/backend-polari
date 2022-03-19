@@ -14,7 +14,7 @@ const typeDefs = gql`
   type Profile {
     _id: ID!
     firstName: String!
-    photo: String!
+    photo: String
     attachmentStyle: String!
     genderIdentity: String!
     genderInterests: [String]!
@@ -22,6 +22,7 @@ const typeDefs = gql`
     birthdate: Date!
     pronouns: String
     sexualOrientation: String
+    userId: String
     user: User
     currentCity: String!
   }
