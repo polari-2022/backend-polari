@@ -17,7 +17,7 @@ const profileSchema = new Schema({
     },
     genderIdentity: {
         type: String,
-        enum: ['women', 'men', 'non-binary'],
+        enum: ['woman', 'man', 'non-binary'],
         required: true,
     },
     genderInterests:[
