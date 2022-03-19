@@ -6,11 +6,11 @@ const resolvers = {
   Query: {
     // get all users
     users: async () => {
-      return User.find();
+      return User.find().populate("profile");
     },
     // need to get one user by id for signup and so can add user id to profile schema
     user: async (parent, args) => {
-      return await User.findById(args.id);
+      return await User.findById(args.id).populate("profile");
     },
     // get all profiles
     profiles: async () => {
@@ -51,6 +51,14 @@ const resolvers = {
         .populate("thread")
         .populate("user");
     },
+    // By adding context to our query, we can retrieve the logged in user without specifically searching for them
+    me: async (parent, args, context) => {
+      if(context.user){
+        return User.findOne({ _id: context.user._id}).populate("profile");
+      }
+      throw newAuthenticationError('You need to be logged in!');
+
+    }
   },
   Mutation: {
     // update - login
