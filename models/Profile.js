@@ -20,13 +20,12 @@ const profileSchema = new Schema({
         // enum: ['woman', 'man', 'non-binary'],
         required: true,
     },
-    genderInterests:[
+    genderInterests:
         {
             type: String,
-            enum: ['women', 'men', 'non-binary'],
+            // enum: ['women', 'men', 'non-binary'],
             required: true,
-        }
-    ],
+        },
     bio: {
         type: String,
         required: true,

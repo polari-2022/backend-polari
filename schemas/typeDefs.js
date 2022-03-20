@@ -14,10 +14,10 @@ const typeDefs = gql`
   type Profile {
     _id: ID!
     firstName: String!
-    photo: String
+    photo: String!
     attachmentStyle: String!
     genderIdentity: String!
-    genderInterests: [String]!
+    genderInterests: String!
     bio: String!
     birthdate: Date!
     pronouns: String
@@ -31,7 +31,7 @@ const typeDefs = gql`
     photo: String
     attachmentStyle: String
     genderIdentity: String
-    genderInterests: [String]
+    genderInterests: String
     bio: String
     birthdate: Date
     pronouns: String
@@ -46,6 +46,7 @@ const typeDefs = gql`
     user: User
     match: User
     messages: [Message]
+    userId: String
   }
 
   type Message {
@@ -54,6 +55,7 @@ const typeDefs = gql`
     date: Date!
     thread: Thread
     user: User
+    threadId: String
   }
 
   type Auth {
@@ -66,32 +68,29 @@ const typeDefs = gql`
     user(id: ID!): User
     profiles: [Profile]
     profile(id: ID!): Profile
-    userprofile(user: ID!):Profile
     threadsTest: [Thread]
-    threads(user: ID!): [Thread]
-    matchthreads(match:ID!):[Thread]
+    threads(userId: String!): [Thread]
     messagesTest: [Message]
     thread(id: ID!): Thread
-    messages(thread: ID!): [Message]
+    messages(threadId: String!): [Message]
     me: User
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(email: String!, password: String!): Auth
-    updateUser(id:ID!, profile:ID!):User
     addProfile(
-      firstName: String!
+      firstName: String
       photo: String
-      attachmentStyle: String!
-      genderIdentity: String!
-      genderInterests: [String]!
-      bio: String!
-      birthdate: Date!
+      attachmentStyle: String
+      genderIdentity: String
+      genderInterests: String
+      bio: String
+      birthdate: Date
       pronouns: String
       sexualOrientation: String
-      currentCity: String!
-      user: ID
+      currentCity: String
+      userId: String
     ): Profile
     updateProfile(
       id: ID!
@@ -99,27 +98,14 @@ const typeDefs = gql`
       photo: String
       attachmentStyle: String
       genderIdentity: String
-      genderInterests: [String]
+      genderInterests: String
       bio: String
       birthdate: Date
       pronouns: String
       sexualOrientation: String
       currentCity: String
     ): Profile
-    addThread(
-      text: String
-      date: Date!
-      user: ID
-      match: ID
-      messages: [ID]
-    ): Thread
     removeThread(threadId: ID!): Thread
-    addMessage(
-      text: String
-      date: Date
-      thread: ID
-      user: ID
-    ): Message
     removeMessage(messageId: ID!): Message
   }
 `;
