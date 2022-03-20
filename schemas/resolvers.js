@@ -6,11 +6,11 @@ const resolvers = {
   Query: {
     // get all users
     users: async () => {
-      return User.find();
+      return User.find().populate("profile");
     },
     // need to get one user by id for signup and so can add user id to profile schema
     user: async (parent, args) => {
-      return await User.findById(args.id);
+      return await User.findById(args.id).populate("profile");
     },
     // get all profiles
     profiles: async () => {
@@ -86,6 +86,17 @@ const resolvers = {
 
       return { token, user };
     },
+    // update a user to add the profile ID
+    updateUser: async (parent, args, context)=>{
+      if(context.user){
+        return await User.findOneAndUpdate(
+          {_id:args.id},
+          {$set:{profile:args.profile}},
+          {new:true}
+        ).populate("profile");
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
     // create a new profile
     addProfile: async (
       parent,
@@ -104,9 +115,9 @@ const resolvers = {
       },
       context
     ) => {
-      if (currentCity) {
-        currentCity.toLowerCase();
-      }
+      // if (currentCity) {
+      //   currentCity.toLowerCase();
+      // }
       if (context.user) {
         const profile = await Profile.create(
           {
@@ -125,7 +136,7 @@ const resolvers = {
           // {_id: context.user._id},
           // {$addToSet: {Profile: profileData}},
           // {new: true},
-        );
+        ).populate("user");
         return profile;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -133,9 +144,10 @@ const resolvers = {
 
     // updateProfile: async
     updateProfile: async (parent, args, context) => {
-      if (currentCity) {
-        currentCity.lowercase();
-      }
+      console.log(context)
+      // if (currentCity) {
+      //   currentCity.lowercase();
+      // }
       if (context.user) {
         return await Profile.findOneAndUpdate(
           { _id: args.id },
@@ -154,7 +166,7 @@ const resolvers = {
             },
           },
           { new: true }
-        );
+        ).populate("user");
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -162,19 +174,18 @@ const resolvers = {
     // add a thread
     addThread: async (
       parent,
-      { id, text, date, user, match, messages, userId },
+      { text, date, user, match, messages },
       context
     ) => {
       if (context.user) {
         const thread = await Thread.create({
-          id,
           text,
           date,
           user,
           match,
           messages,
-          userId,
-        });
+        })
+        // .populate("user").populate("match").populate("messages");
         return thread;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -198,17 +209,15 @@ const resolvers = {
     // add a message
     addMessage: async (
       parent,
-      { id, text, date, thread, user, threadId },
+      {text, date, thread, user },
       context
     ) => {
       if (context.user) {
         const message = await Message.create({
-          id,
           text,
           date,
           thread,
           user,
-          threadId,
         });
         return message;
       }
