@@ -47,18 +47,15 @@ const resolvers = {
     },
     // get messages by id of the thread
     messages: async (parent, args) => {
-      return Message.find(args)
-        .populate("thread")
-        .populate("user");
+      return Message.find(args).populate("thread").populate("user");
     },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (parent, args, context) => {
-      if(context.user){
-        return User.findOne({ _id: context.user._id}).populate("profile");
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("profile");
       }
-      throw newAuthenticationError('You need to be logged in!');
-
-    }
+      throw newAuthenticationError("You need to be logged in!");
+    },
   },
   Mutation: {
     // update - login
@@ -143,27 +140,50 @@ const resolvers = {
       }
       if (context.user) {
         return await Profile.findOneAndUpdate(
-        { _id: args.id },
-        // add something here
-        {
-          $set: {
-            firstName: args.firstName,
-            photo: args.photo,
-            attachmentStyle: args.attachmentStyle,
-            genderIdentity: args.genderIdentity,
-            genderInterests: args.genderInterests,
-            bio: args.bio,
-            birthdate: args.birthdate,
-            pronouns: args.pronouns,
-            sexualOrientation: args.sexualOrientation,
-            currentCity: args.currentCity,
+          { _id: args.id },
+          // add something here
+          {
+            $set: {
+              firstName: args.firstName,
+              photo: args.photo,
+              attachmentStyle: args.attachmentStyle,
+              genderIdentity: args.genderIdentity,
+              genderInterests: args.genderInterests,
+              bio: args.bio,
+              birthdate: args.birthdate,
+              pronouns: args.pronouns,
+              sexualOrientation: args.sexualOrientation,
+              currentCity: args.currentCity,
+            },
           },
-        },
-        { new: true }
-      );
-    }
-    throw new AuthenticationError("You need to be logged in!");
-  },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    // add a thread
+    addThread: async (
+      parent,
+      { id, text, date, user, match, messages, userId },
+      context
+    ) => {
+      if (context.user) {
+        const thread = await Thread.create(
+          {
+            id,
+            text,
+            date,
+            user,
+            match,
+            messages,
+            userId,
+          }
+        );
+        return thread;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
 
     // delete a thread by the id
     removeThread: async (parent, { threadId }, context) => {

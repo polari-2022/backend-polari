@@ -106,6 +106,13 @@ const typeDefs = gql`
       sexualOrientation: String
       currentCity: String
     ): Profile
+    addThread(
+      text: String!
+      date: Date!
+      user: User
+      match: User
+      messages: [Message]
+      userId: String): Thread
     removeThread(threadId: ID!): Thread
     removeMessage(messageId: ID!): Message
   }
