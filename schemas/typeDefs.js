@@ -107,13 +107,19 @@ const typeDefs = gql`
       currentCity: String
     ): Profile
     addThread(
-      text: String!
+      text: String
       date: Date!
       user: User
       match: User
       messages: [Message]
       userId: String): Thread
     removeThread(threadId: ID!): Thread
+    addMessage(
+      text: String
+      date: Date
+      thread: Thread
+      user: User
+      threadId): String: Message
     removeMessage(messageId: ID!): Message
   }
 `;

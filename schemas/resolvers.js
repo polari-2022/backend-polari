@@ -169,17 +169,15 @@ const resolvers = {
       context
     ) => {
       if (context.user) {
-        const thread = await Thread.create(
-          {
-            id,
-            text,
-            date,
-            user,
-            match,
-            messages,
-            userId,
-          }
-        );
+        const thread = await Thread.create({
+          id,
+          text,
+          date,
+          user,
+          match,
+          messages,
+          userId,
+        });
         return thread;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -199,6 +197,27 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
+    // add a message
+    addMessage: async (
+      parent,
+      { id, text, date, thread, user, threadId },
+      context
+    ) => {
+      if (context.user) {
+        const message = await Message.create({
+          id,
+          text,
+          date,
+          thread,
+          user,
+          threadId,
+        });
+        return message;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
     // delete a message by id look at activity 12 resolvers
     removeMessage: async (parent, { messageId }, context) => {
       if (context.user) {
