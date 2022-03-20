@@ -17,17 +17,12 @@ const messageSchema = new Schema({
     user:{
         type:Schema.Types.ObjectId,
         ref:'User'
-    },
-    threadId: {
-        type: String,
     }
 })
 
 const Message = model('Message', messageSchema);
 
 module.exports = Message;
-
-
 
 
 

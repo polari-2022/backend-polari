@@ -6,11 +6,11 @@ const resolvers = {
   Query: {
     // get all users
     users: async () => {
-      return User.find().populate("profile");
+      return User.find();
     },
     // need to get one user by id for signup and so can add user id to profile schema
     user: async (parent, args) => {
-      return await User.findById(args.id).populate("profile");
+      return await User.findById(args.id);
     },
     // get all profiles
     profiles: async () => {
@@ -93,7 +93,6 @@ const resolvers = {
     addProfile: async (
       parent,
       {
-        id,
         firstName,
         photo,
         attachmentStyle,
@@ -104,7 +103,7 @@ const resolvers = {
         pronouns,
         sexualOrientation,
         currentCity,
-        userId,
+        user,
       },
       context
     ) => {
@@ -114,7 +113,6 @@ const resolvers = {
       if (context.user) {
         const profile = await Profile.create(
           {
-            id,
             firstName,
             photo,
             attachmentStyle,
@@ -125,7 +123,7 @@ const resolvers = {
             pronouns,
             sexualOrientation,
             currentCity,
-            userId,
+            user,
           }
           // {_id: context.user._id},
           // {$addToSet: {Profile: profileData}},
@@ -144,7 +142,6 @@ const resolvers = {
       if (context.user) {
         return await Profile.findOneAndUpdate(
         { _id: args.id },
-        // add something here
         {
           $set: {
             firstName: args.firstName,
@@ -193,6 +190,7 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
 
 // const { AuthenticationError } = require('apollo-server-express');
 // const { Message, Thread, Profile, User } = require('../models');

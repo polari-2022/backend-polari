@@ -8,7 +8,6 @@ const typeDefs = gql`
     _id: ID!
     email: String!
     password: String!
-    profile: Profile
   }
 
   type Profile {
@@ -22,7 +21,6 @@ const typeDefs = gql`
     birthdate: Date!
     pronouns: String
     sexualOrientation: String
-    userId: String
     user: User
     currentCity: String!
   }
@@ -47,7 +45,6 @@ const typeDefs = gql`
     user: User
     match: User
     messages: [Message]
-    userId: String
   }
 
   type Message {
@@ -56,7 +53,6 @@ const typeDefs = gql`
     date: Date!
     thread: Thread
     user: User
-    threadId: String
   }
 
   type Auth {
@@ -70,10 +66,10 @@ const typeDefs = gql`
     profiles: [Profile]
     profile(id: ID!): Profile
     threadsTest: [Thread]
-    threads(userId: String!): [Thread]
+    threads(user: ID!): [Thread]
     messagesTest: [Message]
     thread(id: ID!): Thread
-    messages(threadId: String!): [Message]
+    messages(thread:ID!): [Message]
     me: User
   }
 
@@ -81,17 +77,17 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(email: String!, password: String!): Auth
     addProfile(
-      firstName: String
+      firstName: String!
       photo: String
-      attachmentStyle: String
-      genderIdentity: String
-      genderInterests: [String]
-      bio: String
-      birthdate: Date
+      attachmentStyle: String!
+      genderIdentity: String!
+      genderInterests: [String]!
+      bio: String!
+      birthdate: Date!
       pronouns: String
       sexualOrientation: String
-      currentCity: String
-      userId: String
+      currentCity: String!
+      user: ID 
     ): Profile
     updateProfile(
       id: ID!
