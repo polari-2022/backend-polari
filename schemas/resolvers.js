@@ -93,7 +93,7 @@ const resolvers = {
           {_id:args.id},
           {$set:{profile:args.profile}},
           {new:true}
-        ).populate("profile");
+        );
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -136,7 +136,7 @@ const resolvers = {
           // {_id: context.user._id},
           // {$addToSet: {Profile: profileData}},
           // {new: true},
-        ).populate("user");
+        );
         return profile;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -166,7 +166,7 @@ const resolvers = {
             },
           },
           { new: true }
-        ).populate("user");
+        );
       }
       throw new AuthenticationError("You need to be logged in!");
     },
