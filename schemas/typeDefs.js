@@ -8,6 +8,7 @@ const typeDefs = gql`
     _id: ID!
     email: String!
     password: String!
+    profile: Profile
   }
 
   type Profile {
@@ -76,6 +77,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(email: String!, password: String!): Auth
+    updateUser(id:ID!, profile:ID!):User
     addProfile(
       firstName: String!
       photo: String
@@ -105,18 +107,16 @@ const typeDefs = gql`
     addThread(
       text: String
       date: Date!
-      user: User
-      match: User
-      messages: [Message]
-      userId: String
+      user: ID
+      match: ID
+      messages: [ID]
     ): Thread
     removeThread(threadId: ID!): Thread
     addMessage(
       text: String
       date: Date
-      thread: Thread
-      user: User
-      threadId: String
+      thread: ID
+      user: ID
     ): Message
     removeMessage(messageId: ID!): Message
   }
