@@ -69,7 +69,7 @@ const typeDefs = gql`
     threads(user: ID!): [Thread]
     messagesTest: [Message]
     thread(id: ID!): Thread
-    messages(thread:ID!): [Message]
+    messages(thread: ID!): [Message]
     me: User
   }
 
@@ -87,7 +87,7 @@ const typeDefs = gql`
       pronouns: String
       sexualOrientation: String
       currentCity: String!
-      user: ID 
+      user: ID
     ): Profile
     updateProfile(
       id: ID!
@@ -102,7 +102,22 @@ const typeDefs = gql`
       sexualOrientation: String
       currentCity: String
     ): Profile
+    addThread(
+      text: String
+      date: Date!
+      user: User
+      match: User
+      messages: [Message]
+      userId: String
+    ): Thread
     removeThread(threadId: ID!): Thread
+    addMessage(
+      text: String
+      date: Date
+      thread: Thread
+      user: User
+      threadId: String
+    ): Message
     removeMessage(messageId: ID!): Message
   }
 `;
