@@ -4,12 +4,12 @@
         "photo":"sun.png",
         "attachmentStyle":"secure",
         "genderIdentity":"man",
-        "genderInterests":["women","men"],
+        "genderInterests":"women",
         "bio":"I like cats",
         "birthdate":"2000-01-01",
-        "pronouns":"he/him",
+        "pronouns":"He/Him",
         "sexualOrientation":null,
-        "currentCity": "Chicago"
+        "currentCity": "chicago"
 
     },
     {
@@ -17,12 +17,12 @@
         "photo":"sun.png",
         "attachmentStyle":"anxious",
         "genderIdentity":"non-binary",
-        "genderInterests":["women"],
+        "genderInterests":"women",
         "bio":"I like dogs",
         "birthdate":"1999-02-02",
-        "pronouns":"she/her",
+        "pronouns":"She/Her",
         "sexualOrientation":null,
-        "currentCity": "Chicago"
+        "currentCity": "chicago"
 
     },
     {
@@ -30,36 +30,36 @@
         "photo":"sun.png",
         "attachmentStyle":"secure",
         "genderIdentity":"woman",
-        "genderInterests":["women"],
+        "genderInterests":"women",
         "bio":"I like dogs",
         "birthdate":"1998-03-03",
-        "pronouns":"she/her",
+        "pronouns":"She/Her",
         "sexualOrientation":null,
-        "currentCity": "New York"
+        "currentCity": "new york"
     },
     {
         "firstName": "Fiona",
         "photo":"sun.png",
         "attachmentStyle":"avoidant",
         "genderIdentity":"woman",
-        "genderInterests":["women"],
+        "genderInterests":"women",
         "bio":"I like fish",
         "birthdate":"1997-04-04",
-        "pronouns":"she/her",
+        "pronouns":"She/Her",
         "sexualOrientation":null,
-        "currentCity": "Houston"
+        "currentCity": "houston"
     },
     {
         "firstName": "Jonathan",
         "photo":"sun.png",
         "attachmentStyle":"secure",
         "genderIdentity":"man",
-        "genderInterests":["women"],
+        "genderInterests":"women",
         "bio":"I like animals",
         "birthdate":"1996-05-05",
-        "pronouns":"they/them",
+        "pronouns":"They/Them",
         "sexualOrientation":null,
-        "currentCity": "Houston"  
+        "currentCity": "houston"  
     }
 
 ]
