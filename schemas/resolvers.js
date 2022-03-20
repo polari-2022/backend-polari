@@ -20,6 +20,10 @@ const resolvers = {
     profile: async (parent, args) => {
       return Profile.findById(args.id).populate("user");
     },
+    // get the profile of the user that is logged in 
+    userprofile: async(parent, args) =>{
+      return Profile.findOne(args).populate("user")
+    },
     // get all threads
     threadsTest: async () => {
       return Thread.find({})
@@ -29,6 +33,12 @@ const resolvers = {
     },
     // get all the threads for one user by the user's id
     threads: async (parent, args) => {
+      return Thread.find(args)
+        .populate("messages")
+        .populate("user")
+        .populate("match");
+    },
+    matchthreads: async (parent, args) => {
       return Thread.find(args)
         .populate("messages")
         .populate("user")
@@ -93,7 +103,7 @@ const resolvers = {
           {_id:args.id},
           {$set:{profile:args.profile}},
           {new:true}
-        ).populate("profile");
+        );
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -136,7 +146,7 @@ const resolvers = {
           // {_id: context.user._id},
           // {$addToSet: {Profile: profileData}},
           // {new: true},
-        ).populate("user");
+        );
         return profile;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -166,7 +176,7 @@ const resolvers = {
             },
           },
           { new: true }
-        ).populate("user");
+        );
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -185,7 +195,6 @@ const resolvers = {
           match,
           messages,
         })
-        // .populate("user").populate("match").populate("messages");
         return thread;
       }
       throw new AuthenticationError("You need to be logged in!");
