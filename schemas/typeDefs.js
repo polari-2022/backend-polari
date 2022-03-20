@@ -66,8 +66,10 @@ const typeDefs = gql`
     user(id: ID!): User
     profiles: [Profile]
     profile(id: ID!): Profile
+    userprofile(user: ID!):Profile
     threadsTest: [Thread]
     threads(user: ID!): [Thread]
+    matchthreads(match:ID!):[Thread]
     messagesTest: [Message]
     thread(id: ID!): Thread
     messages(thread: ID!): [Message]
