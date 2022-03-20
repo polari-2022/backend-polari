@@ -24,16 +24,11 @@ const threadSchema = new Schema({
             ref:'Message'
         }
     ],
-    userId:{
-        type:String
-    },
 })
 
 const Thread = model('Thread', threadSchema);
 
 module.exports = Thread;
-
-
 
 
 
