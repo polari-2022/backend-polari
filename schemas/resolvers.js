@@ -154,13 +154,13 @@ const resolvers = {
 
     // updateProfile: async
     updateProfile: async (parent, args, context) => {
-      console.log(context)
+      // console.log(args)
       // if (currentCity) {
       //   currentCity.lowercase();
       // }
       if (context.user) {
         return await Profile.findOneAndUpdate(
-          { _id: args.id },
+          { _id: args.profileId },
           {
             $set: {
               firstName: args.firstName,

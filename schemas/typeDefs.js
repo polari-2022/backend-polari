@@ -94,7 +94,7 @@ const typeDefs = gql`
       user: ID
     ): Profile
     updateProfile(
-      id: ID!
+      profileId: ID!
       firstName: String
       photo: String
       attachmentStyle: String
