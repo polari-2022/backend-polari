@@ -1,6 +1,4 @@
 const { gql } = require("apollo-server-express");
-// Query threads by user ID
-// check inputProfile if it work!!!
 
 const typeDefs = gql`
   scalar Date

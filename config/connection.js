@@ -6,6 +6,3 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/backend-p
 });
 
 module.exports = mongoose.connection;
-
-// need to connect to MongoDB Atlas
-// where to get mongodb local instance (ask Jen!)
