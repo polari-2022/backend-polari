@@ -206,7 +206,7 @@ const resolvers = {
           // {$pull:{threadId}},
           // {new:true}
         );
-        await Message.findByIdAndDelete({ threadId });
+        // await Message.findByIdAndDelete({ threadId });
         // delete the messages too !
         return deleteThread;
       }
