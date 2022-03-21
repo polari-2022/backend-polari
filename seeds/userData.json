@@ -1,24 +1,62 @@
 [
     {
-        "email":"bleh@email.com",
+        "email":"neil@email.com",
         "password":"password1"
     },
     {
-        "email":"brianna@email.com",
+        "email":"luke@email.com",
         "password":"password1"
     },
     {
-        "email":"edyta@email.com",
+        "email":"gavin@email.com",
         "password":"password1"
     },
     {
-        "email":"fiona@email.com",
+        "email":"chad@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"mitchell@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"jacqueline@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"megan@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"lena@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"hayley@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"samira@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"demi@email.com",
         "password":"password1"
     },
     {
         "email":"jonathan@email.com",
         "password":"password1"
-    }
-
-    
+    },
+    {
+        "email":"lachlan@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"asia@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"angel@email.com",
+        "password":"password1"
+    } 
 ]
