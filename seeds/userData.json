@@ -1,62 +1,254 @@
 [
     {
-        "email":"neil@email.com",
+        "email":"neil1@email.com",
         "password":"password1"
     },
     {
-        "email":"luke@email.com",
+        "email":"luke1@email.com",
         "password":"password1"
     },
     {
-        "email":"gavin@email.com",
+        "email":"gavin1@email.com",
         "password":"password1"
     },
     {
-        "email":"chad@email.com",
+        "email":"lance1@email.com",
         "password":"password1"
     },
     {
-        "email":"mitchell@email.com",
+        "email":"chad1@email.com",
         "password":"password1"
     },
     {
-        "email":"jacqueline@email.com",
+        "email":"mitchell1@email.com",
         "password":"password1"
     },
     {
-        "email":"megan@email.com",
+        "email":"ricky1@email.com",
         "password":"password1"
     },
     {
-        "email":"lena@email.com",
+        "email":"neil2@email.com",
         "password":"password1"
     },
     {
-        "email":"hayley@email.com",
+        "email":"luke2@email.com",
         "password":"password1"
     },
     {
-        "email":"samira@email.com",
+        "email":"gavin2@email.com",
         "password":"password1"
     },
     {
-        "email":"demi@email.com",
+        "email":"lance2@email.com",
         "password":"password1"
     },
     {
-        "email":"jonathan@email.com",
+        "email":"chad2@email.com",
         "password":"password1"
     },
     {
-        "email":"lachlan@email.com",
+        "email":"mitchell2@email.com",
         "password":"password1"
     },
     {
-        "email":"asia@email.com",
+        "email":"ricky2@email.com",
         "password":"password1"
     },
     {
-        "email":"angel@email.com",
+        "email":"neil3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"luke3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"gavin3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"lance3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"chad3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"mitchell3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"ricky3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"jacqueline1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"megan1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"lena1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"kate1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"hayley1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"samira1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"sarah1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"jacqueline2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"megan2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"lena2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"kate2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"hayley2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"samira2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"sarah2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"jacqueline3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"megan3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"lena3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"kate3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"hayley3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"samira3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"sarah3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"demi1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"jonathan1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"lachlan1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"nico1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"asia1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"angel1@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"ellie1@email.com",
+        "password":"password1"
+    }, 
+    {
+        "email":"demi2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"jonathan2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"lachlan2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"nico2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"asia2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"angel2@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"ellie2@email.com",
+        "password":"password1"
+    }, 
+    {
+        "email":"demi3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"jonathan3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"lachlan3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"nico3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"asia3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"angel3@email.com",
+        "password":"password1"
+    },
+    {
+        "email":"ellie3@email.com",
         "password":"password1"
     } 
 ]
