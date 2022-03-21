@@ -108,10 +108,8 @@ const typeDefs = gql`
     ): Profile
     addThread(
       text: String
-      date: Date!
       user: ID
       match: ID
-      messages: [ID]
     ): Thread
     removeThread(threadId: ID!): Thread
     addMessage(

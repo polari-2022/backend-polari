@@ -184,16 +184,14 @@ const resolvers = {
     // add a thread
     addThread: async (
       parent,
-      { text, date, user, match, messages },
+      { text, user, match,},
       context
     ) => {
       if (context.user) {
         const thread = await Thread.create({
           text,
-          date,
           user,
           match,
-          messages,
         })
         return thread;
       }
